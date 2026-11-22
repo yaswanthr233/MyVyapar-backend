@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URI)
 });
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://192.168.1.45:5173/',process.env.VITE_FRONTEND_URL],
+    origin: ['http://localhost:5173', 'https://myvyapar-gamma.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
