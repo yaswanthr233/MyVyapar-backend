@@ -29,8 +29,8 @@ const createProduct = async (req, res) => {
 const getProducts = async (req, res) => {
     try{
         const products = await Product.find({ userId: req.user.id });
-        const lowStockProducts = products.filter(product => product.quantity <= product.lowStockAlert);
-        const inStockProducts = products.filter(product => product.quantity > product.lowStockAlert);
+        const lowStockProducts = products.filter(product => Number(product.quantity) <= 10);
+        const inStockProducts = products.filter(product => Number(product.quantity) > 10);
         res.status(200).json({ message: 'Products fetched successfully', products, totalProducts: products.length, lowStockProducts: lowStockProducts.length, inStockProducts: inStockProducts.length });
     } catch(err){
         res.status(500).json({ message: 'Error fetching products', error: err.message });
