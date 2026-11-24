@@ -19,11 +19,20 @@ const productSchema = new mongoose.Schema({
         required: true,
         default: ""  
     },
+    hsnCode: {
+        type: String,
+        default: null
+    },
     sku: {
         type: String,
         default: null
     },
     purchasePrice: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    actualPrice:{
         type: Number,
         required: true,
         default: 0
